@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LADM_U4_PRACTICA1_AUTOCONTESTADORA</string>
+    <array name="listas">
+        <item>Lista blanca</item>
+        <item>Lista negra</item>
+    </array>
+</resources>

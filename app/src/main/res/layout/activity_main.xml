@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="333dp"
+        android:layout_height="59dp"
+        android:text="Activar contestadora"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="19dp" />
+
+    <Spinner
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spnListas"
+        android:entries="@array/listas"></Spinner>
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="328dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Coloca un numero telefonico"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="165dp" />
+
+    <Button
+        android:id="@+id/btnRegistrar"
+        android:layout_width="159dp"
+        android:layout_height="48dp"
+        android:text="Registrar"
+        tools:layout_editor_absoluteX="43dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+
+
+
+
+</LinearLayout>
