@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".PhoneReceiver"
+            android:name=".RecibidorLlamadas"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

@@ -20,6 +20,9 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
+import android.content.ComponentName
+import android.view.View
+
 
 class MainActivity : AppCompatActivity() {
     val db = Firebase.firestore
@@ -29,8 +32,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        nTelephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
+       // nTelephonyManager = getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
 
+        disableBroadcastReceiver()
 
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
@@ -69,10 +73,12 @@ class MainActivity : AppCompatActivity() {
             if (cambio){
                 cambio = false
                  button.setText("Activar contestadora")
-            }else{
+                disableBroadcastReceiver()
+                }else{
                 cambio = true
                 button.setText("Desactivar contestadora")
-            }
+                enableBroadcastReceiver()
+                }
         }
 
     }
@@ -135,6 +141,30 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }*/
+   open fun enableBroadcastReceiver() {
+       val receiver = ComponentName(this, RecibidorLlamadas::class.java)
+       val pm = this.packageManager
+       pm.setComponentEnabledSetting(
+           receiver,
+           PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+           PackageManager.DONT_KILL_APP
+       )
+       Toast.makeText(this, "Enabled broadcast receiver", Toast.LENGTH_SHORT).show()
+   }
 
+    /**
+     * This method disables the Broadcast receiver registered in the AndroidManifest file.
+     * @param view
+     */
+    fun disableBroadcastReceiver() {
+        val receiver = ComponentName(this, RecibidorLlamadas::class.java)
+        val pm = this.packageManager
+        pm.setComponentEnabledSetting(
+            receiver,
+            PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+            PackageManager.DONT_KILL_APP
+        )
+        Toast.makeText(this, "Disabled broadcst receiver", Toast.LENGTH_SHORT).show()
+    }
 
 }
